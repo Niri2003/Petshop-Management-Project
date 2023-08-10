@@ -1,4 +1,5 @@
 <html>
+<title>Manage Admin</title>
 <?php include 'menuadmin.php';?>
 <?php include 'config.php';?>
   <h2>Manage Admin</h2>

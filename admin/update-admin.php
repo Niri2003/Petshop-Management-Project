@@ -1,3 +1,5 @@
+<html>
+<title>Update Admin</title>
 <?php include 'menuadmin.php';?>
 <?php include 'config.php';?>
 <section class="contact_section layout_padding-top">

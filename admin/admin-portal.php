@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Admin Portal</title>
 <body>
 <?php include 'menuadmin.php';?>
 <?php include 'config.php';?>
@@ -23,205 +24,95 @@
 
         }
 ?>
-<h1><?php echo "Welcome ".$name; ?></h1> 
 
-<section class="slider_section">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+</style>
+<h1 style="font-family: 'Quicksand', sans-serif;"><?php echo "Welcome ".$name; ?></h1>
 
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
+<link rel="stylesheet" href="http://localhost/project/admin/myst1.css">
+
+
+
+<div class="our-services section-padding20">
+            <div class="container">
+                
+                    <div class="section-tittle text-center mb-70">
+                            
+                            <h2 style="font-family: 'Quicksand', sans-serif; font-weight: bold;">Admin Services</h2>
+                        </div>
+                
+                <div class="row">
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="card">
+                                <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Admin</a></h5>
+                                <p>Add, Delete or Update admin data.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h1>
-                      <span>
-                        Manage Admin <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      Add, Delete or Update admin information
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" class="btn-1" style="text-decoration:none">
-                      MANAGE
-                       </a>
-                  </div>
-                  </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                                            <div class="single-services text-center mb-30">
+                                                <div class="card">
+                                                    <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                                                </div>
+                                                <div class="services-cap">
+                                                    <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Booking Slots</a></h5>
+                                                    <p>Delete or Update slots.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="card">
+                                <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                            </div>
+                        <div class="services-cap">
+                            <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Grooming Slots</a></h5>
+                            <p>Delete or Update slots.</p>
+                         </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="card">
+                                <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Payments</a></h5>
+                                <p>View payment information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="card">
+                                <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Feedback</a></h5>
+                                <p>View feedback information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="card">
+                                <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Callback</a></h5>
+                                <p>View callback information</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="col-md-6">
-                  <div class="img-box1">
-                    <img src="http://localhost/project/images/manageadmin.png">
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
-                    </div>
-                    <h1>
-                      <span>
-                        Manage Hostel Booking <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      Delete or Update booking slots
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
-                        MANAGE
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="http://localhost/project/images/hostel.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
-                    </div>
-                    <h1>
-                      <span>
-                        Manage Grooming Booking <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      Delete or Update booking slots
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
-                        MANAGE
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="http://localhost/project/images/groom.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
-                    </div>
-                    <h1>
-                      <span>
-                        View Payment <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      View payment details
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
-                        VIEW
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="http://localhost/project/images/payment.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>         
-          <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
-                    </div>
-                    <h1>
-                      <span>
-                        View Feedback <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      View feedback details
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
-                        VIEW
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/frontpuppy.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="carousel-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <div class="number">
-                    </div>
-                    <h1>
-                      <span>
-                        View Callback <br>                        
-                      </span>
-                    </h1>
-                    <h3>
-                      View callback details
-                    </h3>
-                    <div class="btn-box">
-                      <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
-                        VIEW
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="http://localhost/project/images/payment.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-
-      </div>
-
-    </section>
 <?php include 'footeradmin.php';?>
 </body>
 </html>

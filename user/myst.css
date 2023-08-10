@@ -1,0 +1,139 @@
+.our-services .single-services {
+    border: 1px solid transparent;
+    background: #e7d61945;
+    border-radius: 6px;
+    padding: 79px 33px;
+    margin-bottom: 35px;
+    
+    -webkit-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    -ms-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+
+}
+
+@media (max-width: 575px) {
+    .our-services .single-services {
+        padding:47px 19px
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .our-services .single-services {
+        padding:47px 19px
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .our-services .single-services {
+        padding:56px 32px
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .our-services .single-services {
+        padding:46px 23px
+    }
+}
+
+.our-services .single-services:hover {
+    box-shadow: 0px 10px 30px 0px rgba(133,66,189,0.1)
+}
+
+.our-services .single-services .services-ion span {
+    font-size: 60px;
+    margin-bottom: 13px;
+    color: #ff7474;
+    -webkit-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    -ms-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+    font-size: 50px;
+    margin-bottom: 30px;
+    display: block;
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+    background: #ffedf2;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50px;
+    display: inline-block
+}
+
+.our-services .single-services .services-cap {
+    padding: 0 16px
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .our-services .single-services .services-cap {
+        padding:0
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .our-services .single-services .services-cap {
+        padding:0
+    }
+}
+
+.our-services .single-services .services-cap h5 a {
+    font-weight: 600;
+    font-size: 18px;
+    color: #001f38;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.our-services .single-services:hover {
+    border: 1px solid #f8c7b7;
+    background: #fff
+}
+
+.our-services .single-services:hover .services-ion span {
+    color: #ff2121
+}
+
+.our-services .single-services:hover h5 a {
+    color: #ff2121
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.mb-70 {
+    margin-bottom: 70px
+}
+
+.row1{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+}
+.mb-70 {
+    margin-bottom: 70px
+}
+.card {
+  width: 100px;
+  height: 100px;
+  margin-left: 90px;
+  background-color: #ffffff;
+  border-radius: 70%;
+  margin-bottom: 20px;
+}
+
+.circle-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}

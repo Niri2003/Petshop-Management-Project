@@ -112,7 +112,7 @@
                       Pet Hostel
                     </h1>
                     <p>
-                      Home away from home, where pets rest and roam
+                      Home away from home, where pets rest and roam.
                     </p>
                     <div class="btn-box">
                       <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
