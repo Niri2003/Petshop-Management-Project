@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <title>Admin Portal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+</style>
 <body>
 <?php include 'menuadmin.php';?>
 <?php include 'config.php';?>
@@ -24,11 +27,25 @@
 
         }
 ?>
+<?php
+    $_SESSION['useremail']=$email;
+if(isset($_SESSION['useremail'])){
+    echo '<h1 style="font-family: \'Quicksand\', sans-serif;">Welcome ' . $name . '</h1>';
+}
+else{
+    header("Location: http://localhost/project/login1.php");
+}
+if (isset($_GET['logout'])) {
+    session_unset();   // Unset all session variables
+    session_destroy();
+    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
+    exit();
+}
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-</style>
-<h1 style="font-family: 'Quicksand', sans-serif;"><?php echo "Welcome ".$name; ?></h1>
+
+?>
+
+
 
 <link rel="stylesheet" href="http://localhost/project/admin/myst1.css">
 
@@ -36,9 +53,7 @@
 
 <div class="our-services section-padding20">
             <div class="container">
-                
                     <div class="section-tittle text-center mb-70">
-                            
                             <h2 style="font-family: 'Quicksand', sans-serif; font-weight: bold;">Admin Services</h2>
                         </div>
                 
@@ -113,6 +128,6 @@
                 </div>
             </div>
         </div>
-<?php include 'footeradmin.php';?>
+
 </body>
 </html>

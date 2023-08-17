@@ -40,7 +40,7 @@
             </div>
             <div id="myNav" class="overlay">
               <div class="overlay-content">
-                  <a href="?logout=true">Logout</a>
+                <a href="http://localhost/project/front.php" style="text-decoration:none">Logout</a>
               </div>
             </div>
           </div>
@@ -49,12 +49,4 @@
     </header>
   </div>
 </div>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script>
-    function openNav() {
-      document.getElementById("myNav").classList.toggle("menu_width")
-      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
-    }
-  </script>
 </html>

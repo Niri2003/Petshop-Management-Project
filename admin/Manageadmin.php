@@ -6,7 +6,23 @@
   <br /><br />
   <?php
   $uid = $_GET['id'];
-    ?>
+?>
+<?php
+    $_SESSION['usermail']=$uid;
+  if(isset($_SESSION['usermail'])){
+    
+  }
+  else{
+    header("Location: http://localhost/project/login1.php");
+  }
+  if (isset($_GET['logout'])) {
+    session_unset();   // Unset all session variables
+    session_destroy(); 
+    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
+    exit();
+  }
+  ?>
+
   <?php
     if (isset($_SESSION['add'])) {
       echo '<span style="color: green;">' . $_SESSION['add'] . '</span>';
