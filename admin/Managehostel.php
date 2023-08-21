@@ -1,0 +1,94 @@
+<html>
+<title>Manage Hostel Booking</title>
+<?php include 'menuadmin.php';?>
+<?php include 'config.php';?>
+  <h2>Manage Hostel Booking</h2>
+  <br /><br />
+  <?php
+  $aid = $_GET['id'];
+?>
+<?php
+    $_SESSION['usermail']=$aid;
+  if(isset($_SESSION['usermail'])){
+    
+  }
+  else{
+    header("Location: http://localhost/project/login1.php");
+  }
+?>
+<?php
+  if (isset($_GET['logout'])) {
+    session_unset();   // Unset all session variables
+    session_destroy(); 
+    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
+    exit();
+  }
+  ?>
+
+  <?php
+    if (isset($_SESSION['delete'])) {
+      echo '<span style="color: red;">' . $_SESSION['delete'] . '</span>';
+      unset($_SESSION['delete']);
+  }
+    if (isset($_SESSION['update'])) {
+      echo '<span style="color: green;">' . $_SESSION['update'] . '</span>';
+      unset($_SESSION['update']);
+  }
+    if (isset($_SESSION['max'])) {
+      echo '<span style="color: red;">' . $_SESSION['max'] . '</span>';
+      unset($_SESSION['max']);
+  }
+  ?>
+  
+  <!-- Add button !-->
+    
+  <table border="1">
+    <tr>
+      <th>Booking ID</th>
+      <th>Starting Date</th>
+      <th style=" width:17%;">Ending date</th>
+      <th>User Id</th>
+      <th>Pet Name</th>
+      <th colspan="2" style="text-align: center; width: 29%;">Actions</th> 
+    </tr>
+    <?php
+      $sql="SELECT * FROM hostelbooking";
+      $res=mysqli_query($conn, $sql);
+      if ($res==TRUE) {
+        $count=mysqli_num_rows($res);
+        if ($count>0){
+            while($rows=mysqli_fetch_assoc($res)){
+              $id=$rows['Hostel_Bid'];
+              $sdate=$rows['Starting_date'];
+              $edate=$rows['Ending_date'];
+              $userid=$rows['User_id'];
+              $pname=$rows['Pet_name'];
+              ?>
+
+            <tr>
+            <td><?php echo $id; ?></td>
+            <td><?php echo $sdate; ?></td>
+            <td ><?php echo $edate; ?></td>
+            <td><?php echo $userid; ?></td>
+            <td><?php echo $pname; ?></td>
+           <td style="border-right: solid white 2px;">
+              <a href="update-hbooking.php?id=<?php echo $id; ?>&aid=<?php echo $aid; ?>" class="btnprimary" style="text-decoration: none">UPDATE</a>
+            </td>
+            <td style="margin:2px">
+            <a href="delete-hbooking.php?id=<?php echo $id; ?>&aid=<?php echo $aid; ?>" class="btnsecondary" style="text-decoration:none">DELETE</a>
+            </td>
+            </tr>            <?php
+          }
+        }
+        else{
+          //No data
+        }
+      }
+    ?>
+
+</table>
+
+<?php include 'footeradmin.php';?>
+</body>
+
+</html>

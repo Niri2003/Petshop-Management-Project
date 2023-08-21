@@ -65,15 +65,9 @@
     $edate=$_POST["edate"];
     $uid=$_GET['id'];
     $sql="INSERT INTO hostelbooking ( `Starting_date`, `Ending_date`, `User_id`,`Pet_name`) values('$sdate','$edate','$uid','$name')";
-    $res=mysqli_query($conn,$sql) or die(mysqli_error());
-    if($res->num_rows == 1)
-    {
-        header("Location: http://localhost/project/user/user-portal.php?email=".$email);
-    }
-    else
-    {
-        header("Location: http://localhost/project/admin/admin-portal.php?email=".$email);
-    }
-  }
+    $res=mysqli_query($conn,$sql);
+    header("Location: http://localhost/project/user/user-portal.php?email=".$email);
+}
 ?>
+
   <?php include 'footeruser.php';?>
