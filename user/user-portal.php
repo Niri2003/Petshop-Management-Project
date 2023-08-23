@@ -6,10 +6,7 @@
 <?php include 'config.php';?>
 
 <?php
-      if($_GET){
-        $email= $_GET['email'];
-              
-      }
+    $email= $_GET['email'];            
       $sql="SELECT * FROM usertable WHERE User_email='$email'";
       $res=mysqli_query($conn, $sql);
       if ($res==TRUE) {
@@ -53,7 +50,7 @@
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/user/hostel-booking.php?id=<?php echo $id; ?>" style="text-decoration:none">Hostel Booking</a></h5>
+                                <h5><a href="http://localhost/project/user/hostel-booking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" style="text-decoration:none">Hostel Booking</a></h5>
                                 <p>Book slot for using services</p>
                             </div>
                         </div>

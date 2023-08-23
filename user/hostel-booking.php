@@ -15,11 +15,7 @@
             </div>
 
     <?php
-    if (isset($_SESSION['add'])) 
-    {
-              echo $_SESSION['add'];
-              unset( $_SESSION['add']);
-    }
+    $email= $_GET['email'];
     ?>
     <body>
 <script>
@@ -66,7 +62,10 @@
     $uid=$_GET['id'];
     $sql="INSERT INTO hostelbooking ( `Starting_date`, `Ending_date`, `User_id`,`Pet_name`) values('$sdate','$edate','$uid','$name')";
     $res=mysqli_query($conn,$sql);
-    header("Location: http://localhost/project/user/user-portal.php?email=".$email);
+    if($res==TRUE)
+    {
+    header("Location: http://localhost/project/user/user-portal.php?email=" . $email);
+  }
 }
 ?>
 
