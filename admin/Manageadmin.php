@@ -5,24 +5,8 @@
   <h2>Manage Admin</h2>
   <br /><br />
   <?php
-  $uid = $_GET['id'];
-?>
-<?php
-    $_SESSION['usermail']=$uid;
-  if(isset($_SESSION['usermail'])){
-    
-  }
-  else{
-    header("Location: http://localhost/project/login1.php");
-  }
-  if (isset($_GET['logout'])) {
-    session_unset();   // Unset all session variables
-    session_destroy(); 
-    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
-    exit();
-  }
-  ?>
-
+  $email = $_GET['email'];
+    ?>
   <?php
     if (isset($_SESSION['add'])) {
       echo '<span style="color: green;">' . $_SESSION['add'] . '</span>';
@@ -43,7 +27,7 @@
   ?>
   
   <!-- Add button !-->
-    <a href="add-admin.php?uid=<?php echo $uid; ?>" class="btnprimary" style="text-decoration:none">ADD ADMIN</a>
+    <a href="add-admin.php?email=<?php echo $email; ?>" class="btnprimary" style="text-decoration:none">ADD ADMIN</a>
   <br /><br />
   <table border="1">
     <tr>
@@ -62,21 +46,22 @@
             while($rows=mysqli_fetch_assoc($res)){
               $id=$rows['Admin_id'];
               $name=$rows['Admin_name'];
-              $email=$rows['Admin_email'];
+              $aemail=$rows['Admin_email'];
               $phone=$rows['Admin_phno'];
               ?>
 
             <tr>
             <td><?php echo $id; ?></td>
             <td><?php echo $name; ?></td>
-            <td style="padding-right: 10px"><?php echo $email; ?></td>
+            <td style="padding-right: 10px"><?php echo $aemail; ?></td>
             <td><?php echo $phone; ?></td>
            <td style="border-right: solid white 2px;">
-              <a href="update-admin.php?id=<?php echo $id; ?>&uid=<?php echo $uid; ?>" class="btnprimary" style="text-decoration:none">UPDATE</a>
+             <a href="update-admin.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" class="btnprimary" style="text-decoration:none">UPDATE</a>
+
             </td>
             <td style="margin:2px">
-              <?php if ($uid!=$id) { ?>
-            <a href="delete-admin.php?id=<?php echo $id; ?>&uid=<?php echo $uid; ?>" class="btnsecondary" style="text-decoration:none">DELETE</a>
+              <?php if ($aemail!=$email) { ?>
+            <a href="delete-admin.php?email=<?php echo $email; ?>&aemail=<?php echo $aemail; ?>" class="btnsecondary" style="text-decoration:none">DELETE</a>
             <?php } ?>
             </td>
             </tr>            <?php

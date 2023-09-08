@@ -44,17 +44,17 @@
     $sdate=$_POST["sdate"];
     $edate=$_POST["edate"];
     $hid=$_GET['id'];
-    $id=$_GET['aid'];
+    
   		echo $id;
 				$sql="UPDATE hostelbooking SET Starting_date='$sdate',Ending_date='$edate' WHERE Hostel_Bid='$hid'";
 				$res=mysqli_query($conn,$sql);
 				if ($res==TRUE) {
 					$_SESSION['update']="Booking updated succesfully";
-					header("Location: http://localhost/project/admin/Managehostel.php?id=".$id);
+					header("Location: http://localhost/project/admin/Managehostel.php?email=".$email);
 				}
 				else{
 					$_SESSION['update']="Updation unsuccesfull";
-					header("Location: http://localhost/project/admin/Managehostel.php?id=".$id);
+					header("Location: http://localhost/project/admin/Managehostel.php?email=".$email);
 				}
     }
 

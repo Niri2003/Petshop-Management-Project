@@ -2,11 +2,14 @@
 <html>
 <title>User Portal</title>
 <body>
-<?php include 'menuuser.php';?>
+<?php include 'usermenu.php';?>
 <?php include 'config.php';?>
 
 <?php
-    $email= $_GET['email'];            
+      if($_GET){
+        $email= $_GET['email'];
+              
+      }
       $sql="SELECT * FROM usertable WHERE User_email='$email'";
       $res=mysqli_query($conn, $sql);
       if ($res==TRUE) {
@@ -14,14 +17,10 @@
         if ($count>0){
             while($rows=mysqli_fetch_assoc($res)){
               $name=$rows['User_fname'];
-              $id=$rows['User_id'];
             }
           }
-        $_SESSION['active']="Password or Username Wrong";
-
         }
 ?>
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 </style>
@@ -50,7 +49,7 @@
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/user/hostel-booking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" style="text-decoration:none">Hostel Booking</a></h5>
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Hostel Booking</a></h5>
                                 <p>Book slot for using services</p>
                             </div>
                         </div>

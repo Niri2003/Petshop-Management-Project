@@ -89,21 +89,21 @@ function checkemail()
 	if(isset($_POST['submit']))
 	{
 		$name=$_POST["name"];
-		$email=$_POST["user_email"];
+		$aemail=$_POST["user_email"];
 		$phone=$_POST["phone"];
     $password=$_POST['userpass'];
 		$uid=$_GET['id'];
-    $id=$_GET['uid'];
-		echo $id;
-				$sql="UPDATE admintable SET Admin_name='$name',Admin_email='$email',Admin_phno='$phone',Admin_pass='$password' WHERE Admin_id='$uid'";
+    $email=$_GET['email'];
+		
+				$sql="UPDATE admintable SET Admin_name='$name',Admin_email='$aemail',Admin_phno='$phone',Admin_pass='$password' WHERE Admin_id='$uid'";
 				$res=mysqli_query($conn,$sql) or die(mysqli_error());
 				if ($res==TRUE) {
 					$_SESSION['update']="Admin updated succesfully";
-					header("Location: http://localhost/project/admin/Manageadmin.php?id=".$id);
+					header("Location: http://localhost/project/admin/Manageadmin.php?email=".$email);
 				}
 				else{
 					$_SESSION['update']="Updation unsuccesfull";
-					header("Location: http://localhost/project/admin/Manageadmin.php?id=".$id);
+					header("Location: http://localhost/project/admin/Manageadmin.php?email=".$email);
 				}
     }
 

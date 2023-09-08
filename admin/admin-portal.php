@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <title>Admin Portal</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-</style>
 <body>
 <?php include 'menuadmin.php';?>
 <?php include 'config.php';?>
@@ -53,7 +50,9 @@ if (isset($_GET['logout'])) {
 
 <div class="our-services section-padding20">
             <div class="container">
+                
                     <div class="section-tittle text-center mb-70">
+                            
                             <h2 style="font-family: 'Quicksand', sans-serif; font-weight: bold;">Admin Services</h2>
                         </div>
                 
@@ -64,7 +63,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Admin</a></h5>
+                                <h5><a href="http://localhost/project/admin/Manageadmin.php?email=<?php echo $email; ?>" style="text-decoration:none">Manage Admin</a></h5>
                                 <p>Add, Delete or Update admin data.</p>
                             </div>
                         </div>
@@ -75,7 +74,7 @@ if (isset($_GET['logout'])) {
                                                     <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                                                 </div>
                                                 <div class="services-cap">
-                                                    <h5><a href="http://localhost/project/admin/Managehostel.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Booking Slots</a></h5>
+                                                    <h5><a href="http://localhost/project/admin/Managehostel.php?email=<?php echo $email; ?>" style="text-decoration:none">Manage Booking Slots</a></h5>
                                                     <p>Delete or Update slots.</p>
                                                 </div>
                                             </div>
@@ -128,6 +127,6 @@ if (isset($_GET['logout'])) {
                 </div>
             </div>
         </div>
-
+<?php include 'footeradmin.php';?>
 </body>
 </html>

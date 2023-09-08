@@ -4,26 +4,8 @@
 <?php include 'config.php';?>
   <h2>Manage Hostel Booking</h2>
   <br /><br />
-  <?php
-  $aid = $_GET['id'];
-?>
-<?php
-    $_SESSION['usermail']=$aid;
-  if(isset($_SESSION['usermail'])){
-    
-  }
-  else{
-    header("Location: http://localhost/project/login1.php");
-  }
-?>
-<?php
-  if (isset($_GET['logout'])) {
-    session_unset();   // Unset all session variables
-    session_destroy(); 
-    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
-    exit();
-  }
-  ?>
+
+
 
   <?php
     if (isset($_SESSION['delete'])) {
@@ -72,10 +54,10 @@
             <td><?php echo $userid; ?></td>
             <td><?php echo $pname; ?></td>
            <td style="border-right: solid white 2px;">
-              <a href="update-hbooking.php?id=<?php echo $id; ?>&aid=<?php echo $aid; ?>" class="btnprimary" style="text-decoration: none">UPDATE</a>
+              <a href="update-hbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btnprimary" style="text-decoration: none">UPDATE</a>
             </td>
             <td style="margin:2px">
-            <a href="delete-hbooking.php?id=<?php echo $id; ?>&aid=<?php echo $aid; ?>" class="btnsecondary" style="text-decoration:none">DELETE</a>
+            <a href="delete-hbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btnsecondary" style="text-decoration:none">DELETE</a>
             </td>
             </tr>            <?php
           }
