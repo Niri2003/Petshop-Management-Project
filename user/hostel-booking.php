@@ -16,7 +16,9 @@
 
     <?php
     $email= $_GET['email'];
+    $id=$_GET['id'];
     ?>
+    
     <body>
 <script>
     function validateDate() {
@@ -59,8 +61,7 @@
     $name=$_POST["pname"];
     $sdate=$_POST["sdate"];
     $edate=$_POST["edate"];
-    $uid=$_GET['id'];
-    $sql="INSERT INTO hostelbooking ( `Starting_date`, `Ending_date`, `User_id`,`Pet_name`) values('$sdate','$edate','$uid','$name')";
+    $sql="INSERT INTO hostelbooking ( `Starting_date`, `Ending_date`, `User_id`,`Pet_name`) values('$sdate','$edate','$id','$name')";
     $res=mysqli_query($conn,$sql);
     if($res==TRUE)
     {

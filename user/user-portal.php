@@ -2,7 +2,7 @@
 <html>
 <title>User Portal</title>
 <body>
-<?php include 'usermenu.php';?>
+<?php include 'menuuser.php';?>
 <?php include 'config.php';?>
 
 <?php
@@ -17,6 +17,7 @@
         if ($count>0){
             while($rows=mysqli_fetch_assoc($res)){
               $name=$rows['User_fname'];
+              $id=$rows['User_id'];
             }
           }
         }
@@ -24,7 +25,24 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 </style>
-<h1 style="font-family: 'Quicksand', sans-serif;"><?php echo "Welcome ".$name; ?></h1>
+<?php
+    $_SESSION['useremail']=$email;
+if(isset($_SESSION['useremail'])){
+    echo '<h1 style="font-family: \'Quicksand\', sans-serif;">Welcome ' . $name . '</h1>';
+}
+else{
+    header("Location: http://localhost/project/login1.php");
+}
+if (isset($_GET['logout'])) {
+    session_unset();   // Unset all session variables
+    session_destroy();
+    header("Location: http://localhost/project/login1.php"); // Redirect to the login page or another suitable page
+    exit();
+}
+
+
+?>
+
 
 <link rel="stylesheet" href="http://localhost/project/user/myst.css">
 <img style=" position: absolute;
@@ -49,7 +67,8 @@
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Hostel Booking</a></h5>
+                                <h5><a href="http://localhost/project/user/hostel-booking.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">Hostel Booking</a></h5>
+
                                 <p>Book slot for using services</p>
                             </div>
                         </div>
@@ -84,7 +103,7 @@
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Give Feedback</a></h5>
+                                <h5><a href="http://localhost/project/user/feedback.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">Give Feedback</a></h5>
                                 <p>Write your opinion about us</p>
                             </div>
                         </div>

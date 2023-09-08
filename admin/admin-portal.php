@@ -6,10 +6,10 @@
 <?php include 'config.php';?>
 
 <?php
-      if($_GET){
+      
         $email= $_GET['email'];
               
-      }
+      
       $sql="SELECT * FROM admintable WHERE Admin_email='$email'";
       $res=mysqli_query($conn, $sql);
       if ($res==TRUE) {
@@ -24,6 +24,9 @@
 
         }
 ?>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+</style>
 <?php
     $_SESSION['useremail']=$email;
 if(isset($_SESSION['useremail'])){
@@ -41,7 +44,6 @@ if (isset($_GET['logout'])) {
 
 
 ?>
-
 
 
 <link rel="stylesheet" href="http://localhost/project/admin/myst1.css">
@@ -107,7 +109,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Feedback</a></h5>
+                                <h5><a href="http://localhost/project/admin/viewfeedback.php?email=<?php echo $email; ?>" style="text-decoration:none">View Feedback</a></h5>
                                 <p>View feedback information</p>
                             </div>
                         </div>
@@ -118,7 +120,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Callback</a></h5>
+                                <h5><a href="http://localhost/project/admin/viewfeedback.php?id=<?php echo $id; ?>" style="text-decoration:none">View Callback</a></h5>
                                 <p>View callback information</p>
                             </div>
                         </div>
