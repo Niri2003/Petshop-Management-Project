@@ -87,7 +87,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                         <div class="services-cap">
-                            <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">Manage Grooming Slots</a></h5>
+                            <h5><a href="http://localhost/project/admin/Managegrooming.php?email=<?php echo $email; ?>" style="text-decoration:none">Manage Grooming Slots</a></h5>
                             <p>Delete or Update slots.</p>
                          </div>
                         </div>
@@ -120,7 +120,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/viewfeedback.php?id=<?php echo $id; ?>" style="text-decoration:none">View Callback</a></h5>
+                                <h5><a href="http://localhost/project/admin/viewcallback.php?email=<?php echo $email; ?>" style="text-decoration:none">View Callback</a></h5>
                                 <p>View callback information</p>
                             </div>
                         </div>

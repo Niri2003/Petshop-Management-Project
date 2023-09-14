@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>View Feedback</title>
+    <title>View callback</title>
     <?php include 'menuadmin.php';?>
     <?php include 'config.php';?>
     <style>
@@ -25,7 +25,7 @@
     </style>
   </head>
   <body>
-    <h2>View Fedback </h2>
+    <h2>View Callback </h2>
     <br /><br />
     <?php
       $email = $_GET['email'];
@@ -34,25 +34,31 @@
 
     <table border="1">
       <tr>
-        <th>Feedback ID</th>
-        <th>Feedback Message</th>
-        <th style="text-align: center;">User Id</th>
+        <th style="text-align: center;">Callback ID</th>
+        <th style="text-align: center;">Users Name</th>
+        <th style="text-align: center;">Phone number</th>
+        <th style="text-align: center;">Email</th>
+        <th style="text-align: center;">Message</th>
       </tr>
       <?php
-        $sql = "SELECT * FROM feedback";
+        $sql = "SELECT * FROM callback";
         $res = mysqli_query($conn, $sql);
         if ($res == TRUE) {
           $count = mysqli_num_rows($res);
           if ($count > 0) {
             while ($rows = mysqli_fetch_assoc($res)) {
-              $id = $rows['Feedback_id'];
-              $message = $rows['Feedback_msg'];
-              $uid = $rows['User_id'];
+              $id = $rows['cbid'];
+              $name = $rows['name'];
+              $phno = $rows['phonenumber'];
+              $cbemail = $rows['cbemail'];
+              $message = $rows['message'];
       ?>
               <tr>
                 <td><?php echo $id; ?></td>
-                <td><?php echo $message; ?></td>
-                <td style="padding-right: 10px"><?php echo $uid; ?></td>
+                <td><?php echo $name; ?></td>
+                <td><?php echo $phno; ?></td>
+                <td><?php echo $cbemail; ?></td>
+                <td style="padding-right: 10px"><?php echo $message; ?></td>
               </tr>
       <?php
             } // Close the while loop here

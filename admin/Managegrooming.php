@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Manage Hostel Booking</title>
+    <title>Manage Grooming Booking</title>
     <?php include 'menuadmin.php';?>
     <?php include 'config.php';?>
     <style>
@@ -45,7 +45,7 @@
     </style>
   </head>
   <body>
-    <h2>Manage Hostel Booking</h2>
+    <h2>Manage Grooming Booking</h2>
     <br /><br />
 
     <?php
@@ -68,36 +68,36 @@
     <table border="1">
       <tr>
         <th >Booking ID</th>
-        <th>Starting Date</th>
-        <th style="width: 17%;">Ending date</th>
+        <th>Grooming Date</th>
+        <th style="width: 17%;">Time Slot</th>
         <th>User Id</th>
         <th>Pet Name</th>
         <th colspan="2" style="text-align: center; width: 29%;">Actions</th> 
       </tr>
       <?php
-        $sql = "SELECT * FROM hostelbooking";
+        $sql = "SELECT * FROM groomingbooking";
         $res = mysqli_query($conn, $sql);
         if ($res == TRUE) {
           $count = mysqli_num_rows($res);
           if ($count > 0) {
             while ($rows = mysqli_fetch_assoc($res)) {
-              $id = $rows['Hostel_Bid'];
-              $sdate = $rows['Starting_date'];
-              $edate = $rows['Ending_date'];
+              $id = $rows['Grooming_Bid'];
+              $date = $rows['Grooming_Date'];
+              $time = $rows['Slot_time'];
               $userid = $rows['User_id'];
               $pname = $rows['Pet_name'];
       ?>
               <tr>
                 <td><?php echo $id; ?></td>
-                <td><?php echo $sdate; ?></td>
-                <td><?php echo $edate; ?></td>
+                <td><?php echo $date; ?></td>
+                <td><?php echo $time; ?></td>
                 <td><?php echo $userid; ?></td>
                 <td><?php echo $pname; ?></td>
                 <td style="border-right: solid white 2px;">
-                  <a href="update-hbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">UPDATE</a>
+                  <a href="update-gbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">UPDATE</a>
                 </td>
                 <td style="margin:2px">
-                  <a href="delete-hbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>
+                  <a href="delete-gbooking.php?id=<?php echo $id; ?>&email=<?php echo $email; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>
                 </td>
               </tr>
       <?php

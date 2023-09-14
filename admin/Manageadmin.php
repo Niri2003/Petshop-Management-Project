@@ -74,7 +74,7 @@
     <br /><br />
     <table border="1">
       <tr>
-        <th>Admin ID</th>
+        <th >Admin ID</th>
         <th>Admin Name</th>
         <th style="text-align: center;">Admin Email</th>
         <th>Admin Phone</th>
