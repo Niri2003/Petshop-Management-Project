@@ -98,7 +98,7 @@ if (isset($_GET['logout'])) {
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
-                                <h5><a href="http://localhost/project/admin/Manageadmin.php?id=<?php echo $id; ?>" style="text-decoration:none">View Payments</a></h5>
+                                <h5><a href="http://localhost/project/admin/viewpayments.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">View Payments</a></h5>
                                 <p>View payment information</p>
                             </div>
                         </div>

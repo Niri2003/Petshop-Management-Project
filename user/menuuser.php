@@ -13,7 +13,22 @@
   <link href="http://localhost/project/css/mybootstrap.css" rel="stylesheet" />
 </head>
 <?php
-              $email=$_GET['email'];?>
+            if (isset($_GET['email']) && isset($_GET['id'])) {
+              $email = $_GET['email'];
+              $id = $_GET['id'];
+              $_SESSION['email']=$email;
+               $_SESSION['id']=$id;
+          }
+          elseif (isset($_GET['email'])) {
+                $email = $_GET['email'];
+          }
+
+          else{
+
+            $email = $_SESSION['email'];
+            $id =  $_SESSION['id'];
+}
+  ?>  
    
 <div class="sub_page">
   <div class="hero_area ">

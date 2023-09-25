@@ -61,17 +61,26 @@
 ?>
 <script>
     function validateDate() {
-      var selectedDate = new Date(document.getElementById('sdate').value);
-      var today = new Date();
-      selectedDate.setHours(0, 0, 0, 0);
+        var sDate = new Date(document.getElementById('sdate').value);
+        var eDate = new Date(document.getElementById('edate').value);
+        var today = new Date();
+        
+        sDate.setHours(0, 0, 0, 0);
+        eDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
 
-      if (selectedDate.getTime() <= today.getTime()) {
-        alert("Please choose a date in the future.");
-        return false;
-      }
-      
-      return true;
+        if (sDate.getTime() <= today.getTime()) {
+            alert("Please choose a start date in the future.");
+            return false;
+        }
+
+        if (eDate.getTime() < sDate.getTime()) {
+            alert("End date should be the same as or greater than the start date.");
+            return false;
+        }
+
+        return true;
     }
-  </script>
+</script>
 <?php include 'footeradmin.php';?>
 

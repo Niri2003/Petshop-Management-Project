@@ -78,6 +78,7 @@
         <th style="width: 17%;">Ending date</th>
         
         <th>Pet Name</th>
+        <th>Booking Status</th>
         <th colspan="2" style="text-align: center; width: 29%;">Actions</th> 
       </tr>
       <?php
@@ -90,24 +91,28 @@
               $hid = $rows['Hostel_Bid'];
               $sdate = $rows['Starting_date'];
               $edate = $rows['Ending_date'];
-              
-              $pname = $rows['Pet_name'];
+              $phname = $rows['Pet_name'];
+              $hstatus = $rows['Booking_status'];
       ?>
               <tr>
                 <td><?php echo $hid; ?></td>
                 <td><?php echo $sdate; ?></td>
                 <td><?php echo $edate; ?></td>
-                
-                <td><?php echo $pname; ?></td>
-                <td style="border-right: solid white 2px;">
-                  <a href="update-hbooking.php?hid=<?php echo $hid; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">PAY</a>
-                </td>
-                <td style="margin:2px">
-                  <a href="delete-hbooking.php?hid=<?php echo $hid; ?>&email=<?php echo $email; ?>&id=<?php echo $id; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>
+                <td><?php echo $phname; ?></td>
+                <td><?php echo $hstatus; ?></td>
 
-                </td>
-              </tr>
-      <?php
+                <?php if ($hstatus === 'UNPAID'): ?>
+        <td style="border-right: solid white 2px;">
+            <a href="hostelbilling.php?sdate=<?php echo $sdate; ?>&edate=<?php echo $edate; ?>&hid=<?php echo $hid; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">PAY</a>
+        </td>
+        <td style="margin:2px">
+            <a href="delete-hbooking.php?hid=<?php echo $hid; ?>&email=<?php echo $email; ?>&id=<?php echo $id; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>
+        </td>
+    <?php else: ?>
+        <td colspan="2">Payment Completed</td>
+    <?php endif; ?>
+</tr>      
+<?php
             } // Close the while loop here
           } else {
             // No data
@@ -139,6 +144,7 @@
         <th>Grooming Date</th>
         <th style="width: 17%;">Time Slot</th>
         <th>Pet Name</th>
+        <th>Booking Status</th>
         <th colspan="2" style="text-align: center; width: 29%;">Actions</th>
     </tr>
     <?php
@@ -151,20 +157,25 @@
                 $gid = $grows['Grooming_Bid']; // Use $gid here
                 $date = $grows['Grooming_Date'];
                 $time = $grows['Slot_time'];
-                $pname = $grows['Pet_name'];
+                $pgname = $grows['Pet_name'];
+                $gstatus = $grows['Booking_status'];
     ?>
                 <tr>
                     <td><?php echo $gid; ?></td>
                     <td><?php echo $date; ?></td>
                     <td><?php echo $time; ?></td>
-                    <td><?php echo $pname; ?></td>
-                    <td style="border-right: solid white 2px;">
-                        <a href="update-gbooking.php?gid=<?php echo $gid; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">PAY</a>
-                    </td>
-                    <td style="margin: 2px;">
-                        <a href="delete-gbooking.php?gid=<?php echo $gid; ?>&email=<?php echo $email; ?>&id=<?php echo $id; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>                    
-                      </td>
-                </tr>
+                    <td><?php echo $pgname; ?></td>
+                    <td><?php echo $gstatus; ?></td>
+                    <?php if ($gstatus === 'UNPAID'): ?>
+        <td style="border-right: solid white 2px;">
+            <a href="groomingbilling.php?date=<?php echo $date; ?>&time=<?php echo $time; ?>&gid=<?php echo $gid; ?>&email=<?php echo $email; ?>" class="btn-primary" style="text-decoration: none">PAY</a>
+        </td>
+        <td style="margin:2px">
+            <a href="delete-hbooking.php?hid=<?php echo $hid; ?>&email=<?php echo $email; ?>&id=<?php echo $id; ?>" class="btn-secondary" style="text-decoration:none">DELETE</a>
+        </td>
+    <?php else: ?>
+        <td colspan="2">Payment Completed</td>
+    <?php endif; ?>
     <?php
             } // Close the while loop here
         } else {

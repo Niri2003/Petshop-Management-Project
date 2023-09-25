@@ -32,18 +32,27 @@
 ?>
 <script>
     function validateDate() {
-      var selectedDate = new Date(document.getElementById('sdate').value);
-      var today = new Date();
-      selectedDate.setHours(0, 0, 0, 0);
+        var sDate = new Date(document.getElementById('sdate').value);
+        var eDate = new Date(document.getElementById('edate').value);
+        var today = new Date();
+        
+        sDate.setHours(0, 0, 0, 0);
+        eDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
 
-      if (selectedDate.getTime() <= today.getTime()) {
-        alert("Please choose a date in the future.");
-        return false;
-      }
-      
-      return true;
+        if (sDate.getTime() <= today.getTime()) {
+            alert("Please choose a start date in the future.");
+            return false;
+        }
+
+        if (eDate.getTime() < sDate.getTime()) {
+            alert("End date should be the same as or greater than the start date.");
+            return false;
+        }
+
+        return true;
     }
-  </script>
+</script>
     
 <form method="POST" action="" onsubmit="return validateDate()">
  <label>Pet Name:</label>
@@ -71,21 +80,24 @@
     $name=$_POST["pname"];
     $sdate=$_POST["sdate"];
     $edate=$_POST["edate"];
-    $sql="INSERT INTO hostelbooking ( `Starting_date`, `Ending_date`, `User_id`,`Pet_name`) values('$sdate','$edate','$id','$name')";
-    $res=mysqli_query($conn,$sql);
     $checkData = "SELECT * FROM hostelbooking WHERE Starting_date = '$sdate'";
-    $result = mysqli_query($conn,$checkData);
-    if($result->num_rows >= 3){
-      $_SESSION['booked']="Sorry, this slot is booked";
-      header("Location: http://localhost/project/user/hostel-booking.php?email=".$email."&id=".$id);
+$result = mysqli_query($conn, $checkData);
 
-           } 
-    else {
-        $res=mysqli_query($conn,$sql);
-        $_SESSION['free']="Slot is succesfully booked";    
-        header("Location: http://localhost/project/user/hostel-booking.php?email=".$email."&id=".$id);
+if ($result->num_rows >= 3) {
+    $_SESSION['booked'] = "Sorry, this slot is booked";
+    header("Location: http://localhost/project/user/hostel-booking.php?email=".$email."&id=".$id);
+} else {
+    $sql = "INSERT INTO hostelbooking (`Starting_date`, `Ending_date`, `User_id`, `Pet_name`) VALUES ('$sdate','$edate','$id','$name')";
+    $res = mysqli_query($conn, $sql);
 
+    if ($res) {
+        $_SESSION['free'] = "Slot is successfully booked";
+    } else {
+        $_SESSION['free'] = "Booking failed. Please try again.";
     }
+
+    header("Location: http://localhost/project/user/hostel-booking.php?email=".$email."&id=".$id);
+}
 }
 ?>
 
