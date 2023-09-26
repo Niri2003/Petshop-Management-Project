@@ -1,17 +1,16 @@
-<?php include 'config.php'; ?>
-
 <?php
-// Check if the date, time, and gid parameters are provided in the URL
+include 'config.php';
+
+// Check if the parameters are provided in the URL
 if (isset($_GET['date']) && isset($_GET['time']) && isset($_GET['gid'])) {
-    // Retrieve the date, time, gid, and email from URL parameters
+    // Retrieve the date, time, GID, and email from URL parameters
     $date = $_GET['date'];
     $time = $_GET['time'];
     $gid = $_GET['gid'];
     $email = $_GET['email'];
 
-    // You can add more details and customize your billing logic here
-    // For example, calculate the amount based on the selected date and time
-    $booking_fee = 50; // Replace with your fee calculation logic
+    // You can add more details and customize your grooming billing logic here
+    $booking_fee = 1500; // Replace with your fee calculation logic
 
     // Display the billing details
     $billing_details = "<p>Grooming Date: $date</p>";
@@ -33,74 +32,116 @@ if (isset($_GET['date']) && isset($_GET['time']) && isset($_GET['gid'])) {
             margin: 0;
             padding: 0;
         }
-
         .container {
-            max-width: 600px;
+            background: white;
+            max-width: 769px;
+            min-height: 287px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4.5rem 1.5rem;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 8px;
+            box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
         }
 
-        h2 {
-            text-align: center;
-            color: #007bff;
+        .left {
+            flex-basis: 50%;
         }
 
-        p {
-            margin: 10px 0;
+        .right {
+            flex-basis: 40%;
         }
 
-        .total-price {
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 20px;
+        form {
+            padding: 1rem;
         }
 
-        .return-link {
-            text-align: center;
-            margin-top: 20px;
+        h3 {
+            margin-top: 1rem;
+            color: #2c3e50;
         }
 
-        .return-link a {
-            text-decoration: none;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 3px;
+        form input[type="text"] {
+            width: 100%;
+            padding: 0.5rem 0.7rem;
+            margin: 0.5rem 0;
+            outline: none;
         }
 
-        .return-link a:hover {
-            background-color: #0056b3;
+        input[type="submit"] {
+            width: 100%;
+            padding: 0.7rem 1.5rem;
+            background: #34495e;
+            color: white;
+            border: none;
+            outline: none;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #2c3e50;
+        }
+
+        form input[name="cnum"] {
+            width: 100%;
+            padding: 0.5rem 0.7rem;
+            margin: 0.5rem 0;
+            outline: none;
+        }
+
+        /* Style for CVV */
+        form input[name="cvv"] {
+            width: 100%;
+            padding: 0.5rem 0.7rem;
+            margin: 0.5rem 0;
+            outline: none;
+        }
+
+        @media only screen and (max-width: 770px) {
+            .container {
+                flex-direction: column;
+            }
+            body {
+                overflow-x: hidden;
+            }
+        }
+        .cnum {
+            padding: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Grooming Billing</h2>
-        <?php echo $billing_details; ?>
-        
-        <!-- Confirm Payment Button -->
-        <form action="" method="post">
-            <input type="hidden" name="booking_fee" value="<?php echo $booking_fee; ?>">
-            <input type="submit" value="Confirm Payment" class="confirm-payment-button">
-        </form>
+        <div class="left">
+            <h3>BILLING DETAILS</h3>
+            <?php echo $billing_details; ?>
+            <form action="invoicegrooming.php" method="POST">
+                <input type="hidden" name="billing_details" value="<?php echo htmlspecialchars($billing_details); ?>">
+                Full name
+                <input type="text" name="name" placeholder="Enter name" required>
+                Email
+                <input type="text" name="bemail" placeholder="Enter email" required>
+                Address
+                <input type="text" name="address" placeholder="Enter address" required>
+                Credit card number
+                <input class="cnum" type="password" name="cnum" placeholder="Enter card number" required>
+                <div id="zip">
+                    <label>
+                        CVV
+                        <input class="cnum" type="password" name="cvv" placeholder="CVV" maxlength="3" required>
+                    </label>
+                </div>
+                <!-- Hidden fields -->
+                <input type="hidden" name="booking_fee" value="<?php echo $booking_fee; ?>">
+                <input type="hidden" name="gid" value="<?php echo $gid; ?>">
+                <input type="hidden" name="email" value="<?php echo $email; ?>">
+                <!-- Rest of your form -->
+                <input type="submit" name="submit" value="Proceed to Checkout">
+            </form>
+        </div>
     </div>
-    <?php
-    if (!empty($_POST)) {
-        $payment_date = date('Y-m-d');
-        $sql = "INSERT INTO `paymentgrooming`(`GPayment_date`, `GPrice`, `Grooming_Bid`) VALUES ('$payment_date','$booking_fee','$gid')";
-        $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
-        if ($res == TRUE) {
-            $sql1 = "UPDATE `groomingbooking` SET `Booking_status`='COMPLETED' WHERE `Grooming_Bid` = $gid";
-            $res1 = mysqli_query($conn, $sql1) or die(mysqli_error());
-            $_SESSION['paid'] = "Payment Successful";
-            header("Location: http://localhost/project/user/user-portal.php?email=$email");
-        }
-    }
-    ?>
-
-    <!-- Add additional HTML or links here as needed -->
 </body>
 </html>
