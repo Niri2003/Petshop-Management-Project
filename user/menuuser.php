@@ -59,10 +59,9 @@
                        <div id="myNav" class="overlay">
               <div class="overlay-content">
                 <a href="http://localhost/project/user/user-portal.php?email=<?php echo $email; ?>" style="text-decoration:none">Home</a>
-
-              </div>
-              <div class="overlay-content">
+                <a href="http://localhost/project/user/contact.php?email=<?php echo $email; ?>"style="text-decoration:none">Contact Us</a>
                 <a href="http://localhost/project/front.php" style="text-decoration:none">Logout</a>
+              </div>
               </div>
             </div>
           </div>

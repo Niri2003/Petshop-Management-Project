@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
-<?php include 'menu.php';?>
+<?php include 'menuuser.php';?>
 <?php include 'config.php';?>
+<?php
+      if($_GET){
+        $email= $_GET['email'];
+              
+      }
+      $sql="SELECT * FROM usertable WHERE User_email='$email'";
+      $res=mysqli_query($conn, $sql);
+      if ($res==TRUE) {
+        $count=mysqli_num_rows($res);
+        if ($count>0){
+            while($rows=mysqli_fetch_assoc($res)){
+              $name=$rows['User_fname'];
+              $id=$rows['User_id'];
+            }
+          }
+        }
+?>
 <section class="contact_section layout_padding-top">
     <div class="container-fluid">
       <div class="row">
@@ -17,12 +34,8 @@
               </p>
             </div>
             <form method="POST" action=""> 
-              <p>Full name:</p>
-              <input type="text" name="fullname" required>
               <p>Phone number:</p>
               <input type="text" name="phonenumber" required> 
-              <p>Email:</p>
-              <input type="email" name="email" required>
               <p>Message:</p>
               <input type="text" class="message-box" name="message" required>
               <input type="submit" name="submit" value="SUBMIT" class="btn">
@@ -44,9 +57,7 @@
 if (isset($_POST['submit'])) {
   // Your form handling code here
 
-  $name = $_POST["fullname"];
   $phone = $_POST["phonenumber"];
-  $email = $_POST["email"];
   $message = $_POST["message"];
 
   // Define your SQL query here for inserting data into your database
@@ -58,7 +69,7 @@ if (isset($_POST['submit'])) {
   } else {
     if ($conn->query($sql) === TRUE) {
       // Redirect to a success page after form submission
-      header("Location: http://localhost/project/login1.php");
+      header("Location: http://localhost/project/user/user-portal.php?email=".$email);
       exit(); // Ensure script execution stops after redirection
     } else {
       echo "Failure: " . $conn->error;
