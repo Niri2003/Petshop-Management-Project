@@ -66,7 +66,7 @@ function checkemail()
  <span id="email_status"></span>
  <br>
  <label>Phone:</label>
- <input type="text" name="phone" id="phone" maxlength="10" required onkeyup="checkphone();">
+ <input type="text" name="phone" id="phone" maxlength="10" minlength="10" required onkeyup="checkphone();">
  <span id="email_status"></span>
  <label>Password:</label>
  <input type="password" name="userpass" id="userpass" maxlength="8" required>

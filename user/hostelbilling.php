@@ -127,13 +127,14 @@ if (isset($_GET['sdate']) && isset($_GET['edate'])) {
            <form action="invoicehostel.php" method="POST">
     <input type="hidden" name="billing_details" value="<?php echo htmlspecialchars($billing_details); ?>">
     Full name
-    <input type="text" name="name" placeholder="Enter name" required>
+    <input type="text" name="name" placeholder="Enter name" required style="text-transform: uppercase;">
+
     Email
     <input type="text" name="bemail" placeholder="Enter email" required>
     Address
     <input type="text" name="address" placeholder="Enter address" required>
     Credit card number
-    <input class="cnum" type="password" name="cnum" placeholder="Enter card number" required>
+    <input class="cnum" type="password" name="cnum" placeholder="Enter card number" required minlength="13" maxlength="19">
     <div id="zip">
         <label>
             CVV

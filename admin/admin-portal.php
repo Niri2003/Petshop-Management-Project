@@ -62,6 +62,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                <a href="http://localhost/project/admin/Manageadmin.php?email=<?php echo $email; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
@@ -73,6 +74,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                                             <div class="single-services text-center mb-30">
                                                 <div class="card">
+                                                    <a href="http://localhost/project/admin/Managehostel.php?email=<?php echo $email; ?>">
                                                     <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                                                 </div>
                                                 <div class="services-cap">
@@ -84,6 +86,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                <a href="http://localhost/project/admin/Managegrooming.php?email=<?php echo $email; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                         <div class="services-cap">
@@ -95,6 +98,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                <a href="http://localhost/project/admin/viewpayments.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
@@ -106,6 +110,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                 <a href="http://localhost/project/admin/viewfeedback.php?email=<?php echo $email; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">
@@ -117,6 +122,7 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                <a href="http://localhost/project/admin/viewcallback.php?email=<?php echo $email; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                             <div class="services-cap">

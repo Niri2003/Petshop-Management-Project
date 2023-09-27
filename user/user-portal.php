@@ -71,7 +71,7 @@ if (isset($_GET['logout'])) {
                             <div class="services-cap">
                                 <h5><a href="http://localhost/project/user/hostel-booking.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">Hostel Booking</a></h5>
 
-                                <p>Book slot for using services</p>
+                                <p>Book slot for hostel services</p>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ if (isset($_GET['logout'])) {
                                                 </div>
                                                 <div class="services-cap">
                                                     <h5><a href="http://localhost/project/user/bookings.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">Your Booking</a></h5>
-                                                    <p>View your completed bookings</p>
+                                                    <p>Complete your bookings </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,11 +106,12 @@ if (isset($_GET['logout'])) {
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="card">
+                                <a href="http://localhost/project/user/payments.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>">
                                 <img src="http://localhost/project/admin/images/mandog.png" class="circle-image">
                             </div>
                         <div class="services-cap">
                             <h5><a href="http://localhost/project/user/payments.php?email=<?php echo $email; ?>&id=<?php echo $id; ?>" style="text-decoration:none">Billing</a></h5>
-                            <p>Complete or view payments.</p>
+                            <p>View your completed payments.</p>
                          </div>
                         </div>
                     </div>
