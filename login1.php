@@ -20,7 +20,11 @@
     <p>Password:</p>
     <input type = "password" name="password" maxlength="8" required>
     <button class="btn"  style="text-decoration:none">SUBMIT</button>
-    </form>
+   </form>
+    <a href="http://localhost/project/signup1.php" class="btn-1" style="text-decoration:none">
+                        SIGN UP
+
+                      </a>
     <?php
   if (isset($_SESSION['wrong'])) {
       echo '<span style="color: red;">' . $_SESSION['wrong'] . '</span>';
